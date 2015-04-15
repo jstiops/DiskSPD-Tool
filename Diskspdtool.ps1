@@ -1,27 +1,27 @@
-﻿	<#
-	.SYNOPSIS
-		Menu driven tool for diskspd tests
+﻿<#
+.SYNOPSIS
+Menu driven tool for diskspd tests
 
-	.DESCRIPTION
-		Use diskspd with a powershell menu. Make use of predefined test patterns
+.DESCRIPTION
+Use diskspd with a powershell menu. Make use of predefined test patterns
 		
-	.NOTES
-		Author:		Jeffrey Strik
-		Blog  :		Nope
-		Twitter:	@jefstor
-        Requires:	Powershell 3.0
-        Version   : 1.0
-		Tested in lab environments, Use on your own risk.
-	#>
+.NOTES
+Author:		Jeffrey Strik
+Blog  :		Nope
+Twitter:	@jefstor
+Requires:	Powershell 3.0
+Version   : 1.0
+Tested in lab environments, Use on your own risk.
+#>
 
 #Set these vars to correct values
-$PathToDiskSpd = $PSScriptRoot+"\diskspd.exe"
 $TestFileSize = "10G"
-$TestDuration = "5"
+$TestDuration = "60"
 #output mode xml or text, -Rxml or -Rtext
 $OutputMode = "-Rxml"
 
 #================Do not edit below=================================
+$PathToDiskSpd = $PSScriptRoot+"\diskspd.exe"
 $TestDriveLetter = ""
 $TestToPerform = ""
 $OutputFileExtension = ""

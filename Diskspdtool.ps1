@@ -316,10 +316,10 @@ Function ProcessResults {
 $contents = [xml](Get-Content $FullOutputFileName)
 
 # sum read and write iops and bandwith across all threads and targets
-$riops = (($contents.Results.TimeSpan.Thread.Target | measure -sum -Property ReadCount).Sum) / [int]$contents.Results.Profile.Timespans.Timespan.Duration
-$wiops = (($contents.Results.TimeSpan.Thread.Target | measure -sum -Property WriteCount).Sum) / [int]$contents.Results.Profile.Timespans.Timespan.Duration
-$rb = [math]::round( ((($contents.Results.TimeSpan.Thread.Target | measure -sum -Property ReadBytes).Sum ) / [int]$contents.Results.Profile.Timespans.Timespan.Duration / (1024*1024) ), 2 )
-$wb = [math]::round( ((($contents.Results.TimeSpan.Thread.Target | measure -sum -Property WriteBytes).Sum ) / [int]$contents.Results.Profile.Timespans.Timespan.Duration / (1024*1024) ), 2 )
+$riops = [math]::round( ((($contents.Results.TimeSpan.Thread.Target | measure -sum -Property ReadCount).Sum) / [int]$contents.Results.Profile.Timespans.Timespan.Duration) , 0)
+$wiops = [math]::round( ((($contents.Results.TimeSpan.Thread.Target | measure -sum -Property WriteCount).Sum) / [int]$contents.Results.Profile.Timespans.Timespan.Duration) , 0 )
+$rb = [math]::round( ((($contents.Results.TimeSpan.Thread.Target | measure -sum -Property ReadBytes).Sum ) / [int]$contents.Results.Profile.Timespans.Timespan.Duration / (1024*1024) ), 0 )
+$wb = [math]::round( ((($contents.Results.TimeSpan.Thread.Target | measure -sum -Property WriteBytes).Sum ) / [int]$contents.Results.Profile.Timespans.Timespan.Duration / (1024*1024) ), 0 )
 
 #sum average latency stats
 $avgLat = $contents.Results.TimeSpan.Latency.AverageTotalMilliseconds

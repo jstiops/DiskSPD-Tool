@@ -6,6 +6,7 @@ Menu driven DiskSPD testing tool
 * Diskspd executable in same folder as the script
 * Enough free capacity on disk targets to perform tests (> 1GB preferred)
 * Check Powershell execution policy setting to allow this .ps1 file to run
+* Works best when powershell console is run with administrator privileges
 
 ##Installation
 1. Download the .zip bundle of DiskSPD-Tool from Github
